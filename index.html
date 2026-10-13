@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Plan Betfair 13 octombrie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* layout: o singura coloana cronologica, carduri scurte pe meci, cote in mono */
+:root{
+  --bg:#f3f5f4; --card:#ffffff; --fg:#17201d; --muted:#5b6762; --line:#d9e0dd;
+  --accent:#0d6b5c; --accent-bg:#e1f2ee;
+  --go:#17723f; --go-bg:#e2f3e7; --wait:#8a5a00; --wait-bg:#fbf0d9; --skip:#5b6762; --skip-bg:#eceff0;
+  --live:#b3261e; --live-bg:#fbe7e5;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#111715; --card:#19211e; --fg:#e6ece9; --muted:#9aa8a2; --line:#2b3632;
+  --accent:#5fc7b2; --accent-bg:#173029;
+  --go:#7fd39b; --go-bg:#183424; --wait:#f0c060; --wait-bg:#33290f; --skip:#9aa8a2; --skip-bg:#232c29;
+  --live:#ff8d84; --live-bg:#3a1b19; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111715; --card:#19211e; --fg:#e6ece9; --muted:#9aa8a2; --line:#2b3632;
+  --accent:#5fc7b2; --accent-bg:#173029;
+  --go:#7fd39b; --go-bg:#183424; --wait:#f0c060; --wait-bg:#33290f; --skip:#9aa8a2; --skip-bg:#232c29;
+  --live:#ff8d84; --live-bg:#3a1b19; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.5;padding-inline:16px;padding-block:20px 48px}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1{font-size:24px;font-weight:600;margin:0;text-wrap:balance}
+h2{font-size:19px;font-weight:600;margin:0;text-wrap:balance}
+p{margin:0}
+.sub{color:var(--muted);font-size:14px}
+nav{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding-block:8px;z-index:2}
+nav button{font:inherit;font-size:13px;color:var(--accent);background:var(--accent-bg);padding:5px 12px;border-radius:999px;border:1px solid transparent;font-weight:500;cursor:pointer}
+nav button[aria-pressed="true"]{border-color:var(--accent)}
+nav button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.rules{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:8px}
+.rules b{font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+section{display:flex;flex-direction:column;gap:10px}
+.group{display:flex;flex-direction:column;gap:8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:7px;min-width:0}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.tag{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.name{font-weight:600;font-size:16px}
+.time{font-family:var(--mono);font-size:13px;color:var(--muted);margin-right:6px}
+.odds{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.chips{display:flex;flex-direction:column;align-items:flex-end;gap:5px}
+.chip{font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.go{color:var(--go);background:var(--go-bg)} .wait{color:var(--wait);background:var(--wait-bg)}
+.skip{color:var(--skip);background:var(--skip-bg)} .live{color:var(--live);background:var(--live-bg)}
+.note{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+.dots{display:inline-flex;gap:3px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--line);display:inline-block}
+.n5,.n4{color:var(--go)} .n3{color:var(--wait)} .n2,.n1{color:var(--skip)}
+.note .dot.on{background:currentColor}
+.scale{display:grid;gap:4px;font-size:14px}
+.scale b{display:inline-block;width:1.4em;font-family:var(--mono)}
+.row{display:grid;grid-template-columns:118px minmax(0,1fr);gap:8px;font-size:14px}
+.row .k{color:var(--muted)}
+.row .v b{font-family:var(--mono);font-weight:500}
+.warn{font-size:13px;color:var(--wait)}
+@media (max-width:480px){.row{grid-template-columns:1fr;gap:0}.row .k{font-size:12px;text-transform:uppercase;letter-spacing:.05em}.chips{flex-direction:row;align-items:center}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:6px">
+    <h1>Plan Betfair, marți 13 octombrie</h1>
+    <p class="sub">Cote Betfair Exchange de la ~09:00. Scoruri live de la Flashscore. Statistici de goluri de la SoccerSTATS (Championship). Ordonate după ora de start. Toate cotele se schimbă până la meci: verifică înainte să intri.</p>
+  </header>
+
+  <section id="reguli">
+    <h2>Regulile zilei</h2>
+    <div class="rules">
+      <p><b>Risc maxim 10 lei pe tranzacție.</b> La back, miza e riscul. La lay, uită-te la „răspundere” (liability) să fie sub 10 lei.</p>
+      <p><b>De ce aproape nimic nu e „de la început”:</b> înainte de start, cotele de pe Betfair sunt deja corecte. Avantajul apare doar când piața exagerează după un eveniment: un break, un set pierdut, un gol.</p>
+      <p><b>Tenis feminin (WTA):</b> break-urile sunt foarte dese, așa că break-back-ul e strategia principală. <b>Tenis masculin (ATP):</b> serviciul e mai puternic și break-urile sunt rare, așa că intri doar după un set pierdut de favorit.</p>
+      <p><b>Ieșirea:</b> ieși cu profit la ținta scrisă. Ieși cu pierdere mică la „stop”, fără să mai aștepți. Cotele de intrare și ieșire sunt aproximative și se calculează din cota de la start.</p>
+      <p><b>Nota de la 1 la 5</b> arată cât de bun e meciul pentru strategie:</p>
+      <div class="scale">
+        <span><b class="n5">5</b> Cel mai bun: strategia se potrivește, statistica o confirmă și sunt mulți bani în piață.</span>
+        <span><b class="n4">4</b> Foarte bun: strategia se potrivește și sunt mulți bani în piață.</span>
+        <span><b class="n3">3</b> Bun: strategia se potrivește, dar sunt mai puțini bani sau intrarea depinde de o surpriză.</span>
+        <span><b class="n2">2</b> Slab: puțini bani în piață sau motive slabe. Doar cu miză foarte mică.</span>
+        <span><b class="n1">1</b> Sari peste.</span>
+      </div>
+      <div class="legend"><span class="chip go">Intri de la start</span><span class="chip wait">Intri doar live</span><span class="chip live">Live acum</span><span class="chip skip">Sari peste</span></div>
+      <p class="sub">Turnee incluse: ATP Shanghai, WTA Wuhan, Champions League, Championship. Am scos Lisabona, Mallorca, Rovereto, turneele Challenger și ITF.</p>
+    </div>
+  </section>
+
+  <section id="program">
+    <h2>Program</h2>
+    <nav aria-label="Filtru">
+      <button type="button" id="f-all" data-f="all" aria-pressed="true">Toate</button>
+      <button type="button" id="f-ten" data-f="tenis" aria-pressed="false">Doar tenis</button>
+      <button type="button" id="f-fot" data-f="fotbal" aria-pressed="false">Doar fotbal</button>
+      <button type="button" id="f-top" data-f="top" aria-pressed="false">Doar nota 4–5</button>
+    </nav>
+    <div class="group" id="g-all"></div>
+  </section>
+</div>
+
+<script>
+const f=n=>n.toFixed(2);
+const pct=c=>Math.round(100/c)+'%';
+const dots=n=>[1,2,3,4,5].map(i=>`<i class="dot${i<=n?' on':''}"></i>`).join('');
+const card=(o)=>`<article class="card" data-sport="${o.sport}" data-conf="${o.conf[0]}">
+  <div class="top"><div style="min-width:0"><div class="tag">${o.tag}</div><span class="time">${o.time}</span><span class="name">${o.name}</span><div class="odds">${o.odds}</div></div>
+  <div class="chips"><span class="note n${o.conf[0]}" aria-label="Nota ${o.conf[0]} din 5"><span class="dots">${dots(o.conf[0])}</span>Nota ${o.conf[0]}/5</span><span class="chip ${o.cls}">${o.chip}</span></div></div>
+  ${o.rows.map(r=>`<div class="row"><span class="k">${r[0]}</span><span class="v">${r[1]}</span></div>`).join('')}
+  <div class="row"><span class="k">De ce nota ${o.conf[0]}</span><span class="v">${o.conf[1]}</span></div>
+  ${o.warn?`<p class="warn">${o.warn}</p>`:''}
+</article>`;
+
+function liqConf(v, extra){
+  if(v>=2000) return [4,`Strategia se potrivește și sunt mulți bani în piață (${v} lei).${extra?' '+extra:''}`];
+  if(v<300) return [2,`Puțini bani în piață (${v} lei): intri și ieși greu.`];
+  return [3,`Strategia se potrivește, dar banii din piață sunt moderați (${v} lei).${extra?' '+extra:''}`];
+}
+
+function tennis(m, atp, tag){
+  const base={sport:'tenis',tag,time:m.t,name:`${m.a} – ${m.b}`};
+  if(m.status) return {...base,odds:m.oddsTxt,cls:m.status.cls,chip:m.status.chip,rows:m.rows,conf:m.conf};
+  if(!m.oa) return {...base,odds:'Cote încă neapărute pe Betfair',cls:'skip',chip:'Verifică mai târziu',conf:[2,'Nu sunt încă cote, deci nu știm cine e favorită și câți bani sunt în piață.'],rows:[['Ce faci','Când apar cotele, aplici regula după cota favoritei: sub 1.15 sari peste, 1.15–1.44 aștepți setul pierdut, 1.45–1.84 break-back, peste 1.85 sari peste.']]};
+  const favA=m.oa<=m.ob, c=favA?m.oa:m.ob, fav=favA?m.a:m.b;
+  const odds=`${m.a} ${f(m.oa)} · ${m.b} ${f(m.ob)} · bani în piață: ${m.v} lei`;
+  const rows=[['De ce '+fav.split(' ').slice(-1)[0], `Piața îl/o vede pe <b>${fav}</b> favorit(ă), cu ~${pct(c)} șanse (cota ${f(c)}). ${m.note||''}`]];
+  const setE=c*1.75, setS=c*3;
+  let cls, chip, conf;
+  if(c>=1.85){
+    cls='skip';chip='Sari peste';conf=[1,'Cote aproape egale: nu există o favorită clară pe care să mizezi.'];
+    rows.push(['De ce nu la start',`Cotele sunt aproape egale (${f(m.oa)} / ${f(m.ob)}), deci înainte de start e o aruncare cu banul.`]);
+    rows.push(['Opțional',`Cine pierde primul serviciu în setul 1 → back pe ea/el la ~<b>${f(c*1.35)}</b>. Ieși după break-back (~<b>${f(c)}</b>), stop la al doilea break (~<b>${f(c*1.8)}</b>).`]);
+  } else if(c<1.15){
+    cls='skip';chip='Sari peste';conf=[1,`Cota ${f(c)} e prea mică: intri doar dacă se întâmplă ceva rar (favorita pierde setul).`];
+    rows.push(['De ce nu la start',`La cota ${f(c)}, câștigi ${f((c-1)*10)} lei la 10 riscați. O singură surpriză îți șterge zece câștiguri.`]);
+    rows.push(['Excepție',`Dacă ${fav} pierde setul 1 și cota urcă peste <b>${f(Math.max(1.8,setE))}</b>, dai back pe ${fav}.`]);
+    rows.push(['Ieșire',`Profit: câștigă setul 2 sau conduce cu un break (cota ~<b>${f(c+0.15)}</b>). Stop: e condusă cu un break în setul 2 (cota ~<b>${f(Math.max(3,setS))}</b>).`]);
+  } else if(c<1.45 || atp){
+    cls='wait';chip=atp?'Favoritul pierde setul 1':'Favorita pierde setul 1';conf=liqConf(m.v);
+    rows.push(['De ce nu la start',`Cota ${f(c)} e corectă acum, deci nu ai niciun avantaj. Avantajul apare doar dacă ${fav} pierde setul 1 și piața o/îl subestimează.`]);
+    rows.push(['Intrare',`${fav} pierde setul 1 → back ${fav} la cota ~<b>${f(setE)}</b> sau mai mare.`]);
+    rows.push(['Ieșire',`Profit: câștigă setul 2 sau conduce cu un break în setul 2 (cota ~<b>${f(c+0.1)}</b>). Stop: e condus(ă) cu un break în setul 2 (cota ~<b>${f(setS)}</b>).`]);
+    if(!atp) rows.push(['Varianta 2',`Break-back în setul 1: pierde serviciul → back la ~<b>${f(c*1.3)}</b>, ieși după break-ul înapoi (~<b>${f(c)}</b>), stop la al doilea break (~<b>${f(c*1.7)}</b>).`]);
+  } else {
+    cls='wait';chip='Break-back';conf=liqConf(m.v);
+    rows.push(['De ce nu la start',`Înainte de start, ${f(c)} e o cotă corectă. La fete, break-urile vin des, iar după un break pierdut cota urcă mai mult decât ar trebui. Acolo e avantajul.`]);
+    rows.push(['Intrare',`${fav} pierde serviciul în setul 1 → back ${fav} la ~<b>${f(c*1.3)}</b>.`]);
+    rows.push(['Ieșire',`Profit: face break-ul înapoi (cota revine la ~<b>${f(c)}</b>). Stop: pierde încă un serviciu (cota ~<b>${f(c*1.7)}</b>).`]);
+  }
+  if(m.conf) conf=m.conf;
+  return {...base,odds,cls,chip,rows,conf,warn:m.v<300&&cls!=='skip'?'Puțini bani în piață: intri și ieși greu. Miză mică sau sari peste.':''};
+}
+
+const atp=[
+  {t:'08:55',a:'Gea',b:'Mensik',oa:2.66,ob:1.59,v:985,note:'Mensik are serviciu foarte puternic.'},
+  {t:'13:00',a:'Zverev',b:'Bublik',oa:1.40,ob:3.40,v:7149,note:'Bublik e imprevizibil (ași, scurte, greșeli), iar setul 1 poate scăpa ușor.'},
+  {t:'14:10',a:'Hurkacz',b:'Davidovich Fokina',oa:1.93,ob:2.06,v:555,note:'Hurkacz are servici mare și multe tiebreak-uri.'}
+];
+const wuhan=[
+  {t:'live',a:'Guo',b:'Cîrstea',oddsTxt:'Live set 1 · Guo 6.80 · Cîrstea 1.16',status:{cls:'live',chip:'Live: așteaptă'},conf:[3,'Sorana e favorită clară, dar intri doar dacă pierde serviciul sau setul.'],rows:[
+    ['De ce Cîrstea','Piața îi dă ~86% șanse. La 1.16, profitul e prea mic acum.'],
+    ['De ce nu acum','La 1.16 câștigi 1,6 lei la 10 riscați. Aștepți să-i crească cota.'],
+    ['Intrare','Sorana pierde serviciul și cota urcă la <b>1.40+</b> → back Cîrstea. Sau pierde setul 1 (cota <b>2.00+</b>).'],
+    ['Ieșire','Profit: face break-ul înapoi (~<b>1.18</b>). Stop: încă un break pierdut (~<b>2.00</b> în setul 1).']]},
+  {t:'live',a:'Sherif',b:'Chwalinska',oddsTxt:'Live set 1, 3-3 · Sherif 3.35 · Chwalinska 1.32',status:{cls:'live',chip:'Live: urmărește'},conf:[2,'Puțini bani în piață (465 lei) și diferență mare între cota de back și cea de lay.'],rows:[
+    ['De ce Chwalinska','Favorită (la start era 1.17), dar Sherif o pune în dificultate: cota a crescut la 1.32.'],
+    ['De ce nu acum','Setul e egal, 3-3. Nu s-a întâmplat nimic care să-ți dea avantaj.'],
+    ['Intrare','Sherif câștigă setul 1 → back Chwalinska la ~<b>2.00–2.20</b>.'],
+    ['Ieșire','Profit: Chwalinska câștigă setul 2 sau conduce cu un break (~<b>1.35</b>). Stop: e condusă cu un break în setul 2 (~<b>3.50</b>).']]},
+  {t:'live',a:'Birrell',b:'Volynets',oddsTxt:'Live set 3 · Birrell 4.00 · Volynets 1.32',status:{cls:'skip',chip:'Sari peste'},conf:[1,'Set decisiv: un singur break decide meciul.'],rows:[['De ce nu','Meciul e în setul decisiv: un singur break schimbă tot. E prea riscant.']]},
+  {t:'live',a:'Putintseva',b:'Sonmez',oddsTxt:'Live set 1, 1-0 · Putintseva 1.76 · Sonmez 2.30 · 25.486 lei în piață',status:{cls:'live',chip:'Live: break-back'},conf:[4,'Mulți bani în piață (25.000+ lei), iar break-back-ul se potrivește la Putintseva.'],rows:[
+    ['De ce Putintseva','Favorită (~57%) și foarte combativă.'],
+    ['De ce nu acum','Conduce deja cu 1-0. Intri doar dacă pierde serviciul și cota urcă.'],
+    ['Intrare','Putintseva pierde serviciul → back la ~<b>2.30</b>.'],
+    ['Ieșire','Profit: break-ul înapoi (~<b>1.75</b>). Stop: încă un break pierdut (~<b>3.00</b>).']]},
+  {t:'~09:30',a:'Boulter',b:'Shnaider',oa:5.0,ob:1.24,v:2259},
+  {t:'~09:30',a:'Kasatkina',b:'Ostapenko',oa:2.28,ob:1.76,v:661,note:'Ostapenko lovește foarte tare și greșește mult, deci face și primește multe break-uri. E cel mai bun meci de azi pentru break-back.',conf:[4,'Stilul Ostapenkăi produce multe break-uri, deci ai multe ocazii de intrare și ieșire. Banii din piață vor crește la start.']},
+  {t:'~10:05',a:'Tagger',b:'Bartunkova',oa:3.2,ob:1.43,v:92},
+  {t:'~10:05',a:'Sakkari',b:'Kostyuk',oa:2.94,ob:1.51,v:33038,note:'Cei mai mulți bani din piață (33.000 lei): intri și ieși ușor.'},
+  {t:'10:55',a:'Snigur',b:'Mertens'},
+  {t:'11:35',a:'Li',b:'Osorio'},
+  {t:'14:00',a:'Krueger',b:'Zhang'},
+  {t:'15:30',a:'Pohankova',b:'Wang Xiyu'}
+];
+
+const UCL='Champions League · etapa 2', CH='Championship · liga 2 engleză';
+const fot=[
+ {tag:UCL,time:'19:45',name:'Sabah – Slavia Praga',odds:'3.75 / 3.90 / 2.12 · Peste 2.5: 1.68',cls:'wait',chip:'Doar live',conf:[2,'Slavia a pierdut acasă în etapa 1, deci nici favorita nu e sigură.'],rows:[
+  ['De ce Slavia','Favorită (~47%). Sabah a pierdut 0-4 la Man Utd în etapa 1.'],
+  ['De ce nu la start','La 2.12, Slavia nu e sigură (a pierdut 2-3 acasă cu Lens). Nu ai avantaj.'],
+  ['Intrare','Sabah marchează primul → back Slavia la ~<b>3.50–4.00</b>. Sau Slavia conduce după minutul 60 → back Slavia la ~<b>1.40</b>.'],
+  ['Ieșire','Profit: egalare Slavia (~<b>2.20</b>) sau minutul 80–85 (~<b>1.12</b>). Stop: Sabah dă încă un gol, sau egalare.']]},
+ {tag:UCL,time:'19:45',name:'Lens – Sporting',odds:'2.66 / 3.95 / 2.72 · Peste 2.5: 1.65',cls:'wait',chip:'Lay the Draw la pauză',conf:[3,'Ambele echipe dau goluri, dar se pariază puțin pe meci până la start.'],rows:[
+  ['De ce','Meci echilibrat, ambele au dat 3 goluri în etapa 1. Piața se așteaptă la goluri (~61% peste 2.5).'],
+  ['De ce nu la start','Lay pe egal la 3.95 înseamnă răspundere de ~3 ori miza. La pauză, dacă e 0-0, riști mult mai puțin.'],
+  ['Intrare','0-0 la pauză → lay pe egal la ~<b>2.30</b>. Sau gol → lay pe echipa care a marcat (~<b>1.75</b>).'],
+  ['Ieșire','Profit: primul gol (egalul urcă la ~<b>4.50</b>), cash-out. Stop: 0-0 la minutul 70 (egalul ~<b>1.70</b>).']]},
+ {tag:CH,time:'21:45',name:'Cardiff – Watford',odds:'1.74 / 4.60 / 5.00 · medie goluri 2.78 / 2.33',cls:'wait',chip:'Time decay',conf:[2,'Cardiff e pe 21, deci și ca favorită e o echipă slabă.'],rows:[
+  ['De ce Cardiff','Watford dă doar 0,25 goluri pe meci în deplasare (0% peste 2.5).'],
+  ['De ce nu la start','Cardiff e pe 21 și a câștigat 1 meci din 9. 1.74 e prea mică pentru o echipă slabă.'],
+  ['Intrare','Cardiff conduce după minutul 60 → back Cardiff la ~<b>1.35–1.45</b>.'],
+  ['Ieșire','Profit: minutul 80 (~<b>1.12</b>). Stop: egalare.']]},
+ {tag:CH,time:'21:45',name:'Wolves – Bolton',odds:'1.45 / 5.20 / 9.00 · medie goluri 3.25 / 3.22',cls:'wait',chip:'Doar live',conf:[3,'Statistica e clar pentru Wolves, dar Wolves a pierdut 2 din ultimele 5.'],rows:[
+  ['De ce Wolves','Acasă iau 78% din puncte și dau 2,33 goluri pe meci. Bolton ia 2,5 goluri pe meci în deplasare.'],
+  ['De ce nu la start','La 1.45 câștigi 4,5 lei la 10, iar Wolves a pierdut 2 din ultimele 5.'],
+  ['Intrare','Bolton marchează primul → back Wolves la ~<b>2.60–3.00</b>. Sau Wolves conduce după minutul 60 → back la ~<b>1.25</b>.'],
+  ['Ieșire','Profit: egalează Wolves (~<b>1.80</b>) sau minutul 80 (~<b>1.07</b>). Stop: Bolton 2-0, sau egalare.']]},
+ {tag:CH,time:'21:45',name:'Wrexham – West Brom',odds:'2.44 / 3.55 / 3.35 · medie goluri 2.56 / 2.11',cls:'skip',chip:'Sari peste',conf:[1,'Puține goluri și nicio favorită clară.'],rows:[
+  ['De ce nu','Puține goluri: West Brom are 33% meciuri peste 2.5. Nu are niciun avantaj.'],
+  ['Opțional','0-0 la minutul 60 → back „Sub 1.5 goluri” la ~<b>1.50</b>, cu miză mică. Profit: minutul 80 (~<b>1.15</b>). Stop: primul gol.']]},
+ {tag:CH,time:'21:45',name:'Millwall – Swansea',odds:'2.58 / 3.60 / 3.05 · medie goluri 3.44 / 2.44',cls:'wait',chip:'Lay the Draw la pauză',conf:[3,'Millwall acasă are goluri în toate meciurile, dar Swansea apără foarte bine și se pariază puțin.'],rows:[
+  ['De ce','Millwall acasă: 3,5 goluri pe meci, 100% din ultimele 4 peste 2.5. Swansea e liderul.'],
+  ['De ce nu la start','Puțini bani în piață (423 lei) și Swansea primește foarte puține goluri (0,78 pe meci).'],
+  ['Intrare','0-0 la pauză → lay pe egal la ~<b>2.30</b>. Millwall marchează → lay Millwall la ~<b>1.75</b>. Swansea marchează → <b>nu</b> lay, ci back Swansea după minutul 60.'],
+  ['Ieșire','Profit: primul gol / egalarea, cash-out. Stop: 0-0 la minutul 70, sau al doilea gol.']]},
+ {tag:CH,time:'21:45',name:'Bristol City – Blackburn',odds:'2.20 / 3.55 / 3.90 · medie goluri 2.78 / 3.00',cls:'skip',chip:'Sari peste',conf:[1,'Statisticile se contrazic.'],rows:[
+  ['De ce nu','Bristol acasă are doar 25% meciuri peste 2.5, iar Blackburn în deplasare 75%. Nu ai un avantaj clar.']]},
+ {tag:CH,time:'21:45',name:'Burnley – Charlton',odds:'1.70 / 4.20 / 6.20 · medie goluri 3.33 / 2.11',cls:'skip',chip:'Sari peste',conf:[1,'Piața și clasamentul nu se potrivesc, iar nicio strategie nu are avantaj.'],rows:[
+  ['De ce nu','Burnley e pe 22, dar piața îl dă favorit clar. Charlton dă doar 0,89 goluri pe meci, deci o egalare e puțin probabilă și lay după gol nu merge.']]},
+ {tag:UCL,time:'22:00',name:'Arsenal – Lille',odds:'1.25 / 7.40 / 17.50 · Peste 2.5: 1.57',cls:'skip',chip:'Doar după surpriză',conf:[3,'Dacă Lille marchează primul, revenirea Arsenalului e probabilă. Dar e puțin probabil să se întâmple.'],rows:[
+  ['De ce Arsenal','~80% șanse, acasă.'],
+  ['De ce nu la start','La 1.25 câștigi 2,5 lei la 10. Prea puțin.'],
+  ['Intrare','Lille marchează primul → back Arsenal la ~<b>2.40–2.80</b>.'],
+  ['Ieșire','Profit: egalează Arsenal (~<b>1.60</b>). Stop: Lille 2-0.']]},
+ {tag:UCL,time:'22:00',name:'Atletico – Man Utd',odds:'2.04 / 4.00 / 3.90 · Peste 2.5: 1.61',cls:'wait',chip:'Lay după gol',conf:[4,'Meciul serii, cu cei mai mulți bani în piață. Ambele echipe pot marca, deci o egalare e realistă.'],rows:[
+  ['De ce','Meciul serii, cu mulți bani în piață. United a dat 4 goluri în etapa 1, Atletico a pierdut la Liverpool.'],
+  ['De ce nu la start','2.04 / 3.90 e o cotă corectă. Avantajul apare după primul gol, când piața exagerează.'],
+  ['Intrare','Atletico marchează → lay Atletico la ~<b>1.40</b>. United marchează → lay United la ~<b>1.90</b>.'],
+  ['Ieșire','Profit: egalarea (cota celui care a marcat urcă la ~<b>2.10</b> / ~<b>4.00</b>). Stop: cota celui care a marcat scade cu 10 trepte (~<b>1.30</b> / ~<b>1.75</b>) sau al doilea gol.']]},
+ {tag:UCL,time:'22:00',name:'Galatasaray – Barcelona',odds:'10.0 / 7.40 / 1.32 · Peste 2.5: 1.22',cls:'skip',chip:'Doar după surpriză',conf:[3,'Barcelona revine des, dar intrarea depinde de un gol surpriză.'],rows:[
+  ['De ce Barcelona','~76% șanse și peste 4 goluri pe meci în campionat.'],
+  ['De ce nu la start','La 1.32 riști 10 ca să câștigi 3,2. Galatasaray acasă poate da un gol.'],
+  ['Intrare','Galatasaray marchează primul → back Barcelona la ~<b>2.60–3.20</b>.'],
+  ['Ieșire','Profit: egalează Barça (~<b>1.60</b>). Stop: Galatasaray 2-0.']]},
+ {tag:UCL,time:'22:00',name:'Inter – Club Brugge',odds:'1.29 / 7.00 / 13.50 · Peste 2.5: 1.43',cls:'skip',chip:'Doar după surpriză',conf:[3,'Inter marchează mult, dar intrarea depinde de un gol surpriză.'],rows:[
+  ['De ce Inter','~78% șanse și 18 goluri în 6 meciuri în Serie A.'],
+  ['De ce nu la start','La 1.29 câștigi 2,9 lei la 10. Prea puțin.'],
+  ['Intrare','Brugge marchează primul → back Inter la ~<b>2.50–3.00</b>.'],
+  ['Ieșire','Profit: egalează Inter (~<b>1.60</b>). Stop: Brugge 2-0.']]},
+ {tag:UCL,time:'22:00',name:'RB Leipzig – PSV',odds:'1.68 / 5.10 / 4.90 · Peste 2.5: 1.33',cls:'wait',chip:'Lay după gol',conf:[3,'Piața se așteaptă la multe goluri și riști puțin, dar Leipzig acasă poate domina.'],rows:[
+  ['De ce','Piața se așteaptă la multe goluri (~75% peste 2.5). Leipzig a luat 4 goluri la Como în etapa 1.'],
+  ['De ce nu la start','Egalul la 5.1 e prea scump de lay, iar Leipzig la 1.68 nu e sigur.'],
+  ['Intrare','Leipzig marchează → lay Leipzig la ~<b>1.25–1.30</b>. Riști foarte puțin.'],
+  ['Ieșire','Profit: egalează PSV (Leipzig urcă la ~<b>1.80</b>). Stop: Leipzig 2-0.']]},
+ {tag:UCL,time:'22:00',name:'Viking – Bayern',odds:'26 / 14.5 / 1.13 · Peste 2.5: 1.16',cls:'skip',chip:'Doar după surpriză',conf:[2,'Un gol al lui Viking e foarte puțin probabil, deci probabil nu vei intra deloc.'],rows:[
+  ['De ce Bayern','~88% șanse.'],
+  ['De ce nu la start','La 1.13 câștigi 1,3 lei la 10 riscați.'],
+  ['Intrare','Viking marchează primul → back Bayern la ~<b>1.80–2.00</b>.'],
+  ['Ieșire','Profit: egalează Bayern (~<b>1.25</b>). Stop: Viking 2-0.']]},
+ {tag:UCL,time:'22:00',name:'Villarreal – Napoli',odds:'2.24 / 3.90 / 3.45 · Peste 2.5: 1.67',cls:'wait',chip:'Lay the Draw la pauză',conf:[2,'Puțini bani în piață (915 lei) până la start.'],rows:[
+  ['De ce','Ambele au pierdut în etapa 1 și au nevoie de victorie.'],
+  ['De ce nu la start','Puțini bani în piață (915 lei) și egalul la 3.90 e scump.'],
+  ['Intrare','0-0 la pauză → lay pe egal la ~<b>2.30</b>.'],
+  ['Ieșire','Profit: primul gol, cash-out. Stop: 0-0 la minutul 70 (egalul ~<b>1.70</b>).']]},
+ {tag:CH,time:'22:00',name:'Stoke – Middlesbrough',odds:'3.80 / 3.95 / 2.12 · medie goluri 3.11 / 3.22',cls:'go',chip:'Lay the Draw de la start',conf:[5,'Statistica arată goluri la ambele echipe și sunt bani suficienți în piață.'],rows:[
+  ['De ce','Locul 4 contra locul 2. Ambele depășesc 3 goluri pe meci (78% și 67% peste 2.5), cu bani suficienți în piață.'],
+  ['De ce de la start','E singurul meci de azi unde statistica arată goluri la ambele echipe.'],
+  ['Intrare','Lay pe egal la ~<b>3.95</b>, miză ~<b>3.40 lei</b> (răspundere 10 lei).'],
+  ['Ieșire','Profit: primul gol (egalul urcă la ~<b>5.50–6.00</b>), cash-out (~+2–3 lei). Stop: 0-0 la minutul 35 (egalul ~<b>3.00</b>), ieși cu ~−2,5 lei.']]},
+ {tag:CH,time:'22:00',name:'Birmingham – Preston',odds:'1.62 / 4.60 / 6.40 · medie goluri 2.67 / 2.67',cls:'wait',chip:'Time decay',conf:[3,'Preston e ultima, dar Birmingham nu e o echipă care dă multe goluri.'],rows:[
+  ['De ce Birmingham','Preston e ultima (15% din puncte).'],
+  ['De ce nu la start','Lay Preston la 6.40 e prea scump (riști 54 lei ca să câștigi 10). Back Birmingham la 1.62 nu are avantaj.'],
+  ['Intrare','Birmingham conduce după minutul 60 → back la ~<b>1.30</b>. Preston marchează primul → back Birmingham la ~<b>2.80–3.20</b>.'],
+  ['Ieșire','Profit: minutul 80 (~<b>1.10</b>) sau egalarea (~<b>1.90</b>). Stop: egalare / Preston 2-0.']]}
+].map(o=>({...o,sport:'fotbal'}));
+
+const key=t=>{if(t==='live')return -1;const m=t.match(/(\d{2}):(\d{2})/);return m?(+m[1])*60+(+m[2]):9999;};
+const all=[
+  ...atp.map(m=>tennis(m,true,'Tenis · ATP Shanghai · bărbați')),
+  ...wuhan.map(m=>tennis(m,false,'Tenis · WTA Wuhan · femei')),
+  ...fot
+].map((o,i)=>({...o,i})).sort((a,b)=>key(a.time)-key(b.time)||a.i-b.i);
+
+const box=document.getElementById('g-all');
+box.innerHTML=all.map(card).join('');
+const btns=[...document.querySelectorAll('nav button')];
+btns.forEach(b=>b.addEventListener('click',()=>{
+  btns.forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));
+  const v=b.dataset.f;
+  box.querySelectorAll('.card').forEach(c=>{
+    c.hidden = v==='all'?false : v==='top'? +c.dataset.conf<4 : c.dataset.sport!==v;
+  });
+}));
+</script>
+</body>
+</html>
