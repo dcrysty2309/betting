@@ -64,6 +64,27 @@ section{display:flex;flex-direction:column;gap:10px}
 .row .k{color:var(--muted)}
 .row .v b{font-family:var(--mono);font-weight:500}
 .warn{font-size:13px;color:var(--wait)}
+nav a{font-size:13px;color:var(--accent);background:var(--accent-bg);padding:5px 12px;border-radius:999px;text-decoration:none;font-weight:500}
+nav a:focus-visible,summary:focus-visible,.toprow:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sport{gap:12px;scroll-margin-top:52px}
+.sport>h2{font-size:22px;padding-bottom:6px;border-bottom:2px solid var(--fg)}
+.comps{display:flex;flex-direction:column;gap:14px}
+details.comp>summary,details.rulesbox>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;padding:10px 14px;background:var(--accent-bg);border-radius:10px}
+details.comp>summary::-webkit-details-marker,details.rulesbox>summary::-webkit-details-marker{display:none}
+details.comp>summary .cname{font-weight:600;font-size:16px;color:var(--accent)}
+details.comp>summary .cname::before,details.rulesbox>summary h2::before{content:"▸ ";display:inline-block;width:1em}
+details[open].comp>summary .cname::before,details[open].rulesbox>summary h2::before{content:"▾ "}
+details.comp>.group{margin-top:8px}
+details.rulesbox>.rules{margin-top:8px}
+.cnt{font-size:13px;color:var(--muted)}
+.toplist{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.toprow{display:grid;grid-template-columns:58px minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 14px;border-top:1px solid var(--line);color:var(--fg);text-decoration:none}
+.toprow:first-child{border-top:0}
+.toprow .tt{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.toprow .tn{font-weight:600}
+.toprow .ts{font-size:12px;color:var(--muted)}
+#top,#reguli{scroll-margin-top:52px}
+.card:target{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-bg)}
 @media (max-width:480px){.row{grid-template-columns:1fr;gap:0}.row .k{font-size:12px;text-transform:uppercase;letter-spacing:.05em}.chips{flex-direction:row;align-items:center}}
 </style>
 </head>
@@ -72,11 +93,22 @@ section{display:flex;flex-direction:column;gap:10px}
 <div class="wrap">
   <header style="display:flex;flex-direction:column;gap:6px">
     <h1>Plan Betfair, marți 13 octombrie</h1>
-    <p class="sub">Cote Betfair Exchange de la ~09:00. Scoruri live de la Flashscore. Statistici de goluri de la SoccerSTATS (Championship). Ordonate după ora de start. Toate cotele se schimbă până la meci: verifică înainte să intri.</p>
+    <p class="sub">Cote Betfair Exchange de la ~09:00. Scoruri live de la Flashscore. Statistici de goluri de la SoccerSTATS (Championship). Grupate pe sport și competiție, în ordinea orei. Toate cotele se schimbă până la meci: verifică înainte să intri.</p>
   </header>
 
+  <nav aria-label="Sări la">
+    <a href="#top">Cele mai bune</a><a href="#tenis">Tenis</a><a href="#fotbal">Fotbal</a><a href="#reguli">Reguli</a>
+  </nav>
+
+  <section id="top">
+    <h2>Cele mai bune azi</h2>
+    <p class="sub">Meciurile cu nota 4 sau 5, în ordinea orei. Apasă pe un meci ca să sari la detalii.</p>
+    <div id="toplist" class="toplist"></div>
+  </section>
+
   <section id="reguli">
-    <h2>Regulile zilei</h2>
+    <details class="rulesbox">
+    <summary><h2>Regulile zilei</h2><span class="sub">apasă ca să le vezi</span></summary>
     <div class="rules">
       <p><b>Risc maxim 10 lei pe tranzacție.</b> La back, miza e riscul. La lay, uită-te la „răspundere” (liability) să fie sub 10 lei.</p>
       <p><b>De ce aproape nimic nu e „de la început”:</b> înainte de start, cotele de pe Betfair sunt deja corecte. Avantajul apare doar când piața exagerează după un eveniment: un break, un set pierdut, un gol.</p>
@@ -93,26 +125,19 @@ section{display:flex;flex-direction:column;gap:10px}
       <div class="legend"><span class="chip go">Intri de la start</span><span class="chip wait">Intri doar live</span><span class="chip live">Live acum</span><span class="chip skip">Sari peste</span></div>
       <p class="sub">Turnee incluse: ATP Shanghai, WTA Wuhan, Champions League, Championship. Am scos Lisabona, Mallorca, Rovereto, turneele Challenger și ITF.</p>
     </div>
+    </details>
   </section>
 
-  <section id="program">
-    <h2>Program</h2>
-    <nav aria-label="Filtru">
-      <button type="button" id="f-all" data-f="all" aria-pressed="true">Toate</button>
-      <button type="button" id="f-ten" data-f="tenis" aria-pressed="false">Doar tenis</button>
-      <button type="button" id="f-fot" data-f="fotbal" aria-pressed="false">Doar fotbal</button>
-      <button type="button" id="f-top" data-f="top" aria-pressed="false">Doar nota 4–5</button>
-    </nav>
-    <div class="group" id="g-all"></div>
-  </section>
+  <section id="tenis" class="sport"><h2>Tenis</h2><div id="g-tenis" class="comps"></div></section>
+  <section id="fotbal" class="sport"><h2>Fotbal</h2><div id="g-fotbal" class="comps"></div></section>
 </div>
 
 <script>
 const f=n=>n.toFixed(2);
 const pct=c=>Math.round(100/c)+'%';
 const dots=n=>[1,2,3,4,5].map(i=>`<i class="dot${i<=n?' on':''}"></i>`).join('');
-const card=(o)=>`<article class="card" data-sport="${o.sport}" data-conf="${o.conf[0]}">
-  <div class="top"><div style="min-width:0"><div class="tag">${o.tag}</div><span class="time">${o.time}</span><span class="name">${o.name}</span><div class="odds">${o.odds}</div></div>
+const card=(o)=>`<article class="card" id="${o.id}" data-sport="${o.sport}" data-conf="${o.conf[0]}">
+  <div class="top"><div style="min-width:0"><span class="time">${o.time}</span><span class="name">${o.name}</span><div class="odds">${o.odds}</div></div>
   <div class="chips"><span class="note n${o.conf[0]}" aria-label="Nota ${o.conf[0]} din 5"><span class="dots">${dots(o.conf[0])}</span>Nota ${o.conf[0]}/5</span><span class="chip ${o.cls}">${o.chip}</span></div></div>
   ${o.rows.map(r=>`<div class="row"><span class="k">${r[0]}</span><span class="v">${r[1]}</span></div>`).join('')}
   <div class="row"><span class="k">De ce nota ${o.conf[0]}</span><span class="v">${o.conf[1]}</span></div>
@@ -273,22 +298,29 @@ const fot=[
 ].map(o=>({...o,sport:'fotbal'}));
 
 const key=t=>{if(t==='live')return -1;const m=t.match(/(\d{2}):(\d{2})/);return m?(+m[1])*60+(+m[2]):9999;};
-const all=[
-  ...atp.map(m=>tennis(m,true,'Tenis · ATP Shanghai · bărbați')),
-  ...wuhan.map(m=>tennis(m,false,'Tenis · WTA Wuhan · femei')),
-  ...fot
-].map((o,i)=>({...o,i})).sort((a,b)=>key(a.time)-key(b.time)||a.i-b.i);
-
-const box=document.getElementById('g-all');
-box.innerHTML=all.map(card).join('');
-const btns=[...document.querySelectorAll('nav button')];
-btns.forEach(b=>b.addEventListener('click',()=>{
-  btns.forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));
-  const v=b.dataset.f;
-  box.querySelectorAll('.card').forEach(c=>{
-    c.hidden = v==='all'?false : v==='top'? +c.dataset.conf<4 : c.dataset.sport!==v;
-  });
-}));
+const byTime=arr=>arr.map((o,i)=>({...o,i})).sort((a,b)=>key(a.time)-key(b.time)||a.i-b.i);
+let n=0;
+const withId=arr=>arr.map(o=>({...o,id:'m'+(++n)}));
+const comps={
+  tenis:[
+    {name:'ATP Shanghai · bărbați',items:withId(byTime(atp.map(m=>tennis(m,true,''))))},
+    {name:'WTA Wuhan · femei',items:withId(byTime(wuhan.map(m=>tennis(m,false,''))))}
+  ],
+  fotbal:[
+    {name:'Champions League · etapa 2',items:withId(byTime(fot.filter(o=>o.tag===UCL)))},
+    {name:'Championship · liga 2 engleză',items:withId(byTime(fot.filter(o=>o.tag===CH)))}
+  ]
+};
+const sportLabel={tenis:'Tenis',fotbal:'Fotbal'};
+const topList=[];
+for(const [sp,list] of Object.entries(comps)){
+  document.getElementById('g-'+sp).innerHTML=list.map(c=>{
+    const good=c.items.filter(o=>o.conf[0]>=4).length;
+    c.items.filter(o=>o.conf[0]>=4).forEach(o=>topList.push({...o,comp:c.name,sp}));
+    return `<details class="comp" open><summary><span class="cname">${c.name}</span><span class="cnt">${c.items.length} meciuri · ${good} cu nota 4–5</span></summary><div class="group">${c.items.map(card).join('')}</div></details>`;
+  }).join('');
+}
+document.getElementById('toplist').innerHTML=byTime(topList).map(o=>`<a class="toprow" href="#${o.id}"><span class="tt">${o.time}</span><span style="min-width:0"><span class="tn">${o.name}</span><br><span class="ts">${sportLabel[o.sp]} · ${o.comp} · ${o.chip}</span></span><span class="note n${o.conf[0]}">${o.conf[0]}/5</span></a>`).join('');
 </script>
 </body>
 </html>
