@@ -93,7 +93,7 @@ details.rulesbox>.rules{margin-top:8px}
 <div class="wrap">
   <header style="display:flex;flex-direction:column;gap:6px">
     <h1>Plan Betfair, marți 13 octombrie</h1>
-    <p class="sub">Actualizat la 09:35: cote Betfair Exchange și scoruri live. Nota de la 1 la 5: 5 = cel mai bun meci pentru strategie, 1 = sari peste. Risc maxim 10 lei pe tranzacție. Cotele se schimbă: verifică pe Betfair înainte să intri.</p>
+    <p class="sub">Actualizat la 13:30: doar meciurile care n-au început încă, cu cotele Betfair de acum. Nota de la 1 la 5: 5 = cel mai bun meci pentru strategie, 1 = sari peste. Risc maxim 10 lei pe tranzacție. Cotele se schimbă: verifică pe Betfair înainte să intri.</p>
   </header>
 
   <nav aria-label="Sări la">
@@ -165,93 +165,78 @@ function tennis(m, atp, tag){
 }
 
 const atp=[
-  {t:'live',score:'Live set 1, 5-5',a:'Gea',b:'Mensik',oa:2.76,ob:1.58,v:985,note:'Mensik are serviciu foarte puternic.'},
-  {t:'13:00',a:'Zverev',b:'Bublik',oa:1.39,ob:3.60,v:7149,note:'Bublik e imprevizibil (ași, scurte, greșeli), iar setul 1 poate scăpa ușor.'},
-  {t:'14:30',a:'Hurkacz',b:'Davidovich Fokina',oa:1.94,ob:2.08,v:555,note:'Hurkacz are servici mare și multe tiebreak-uri.'}
+  {t:'14:30',a:'Hurkacz',b:'Davidovich Fokina',oa:1.97,ob:2.06,v:9152,note:'Hurkacz are servici mare și multe tiebreak-uri.'}
 ];
 const wuhan=[
-  {t:'live',a:'Guo',b:'Cîrstea',oddsTxt:'Live: Cîrstea conduce 6-1, 4-1 · Cîrstea 1.02 · Guo 50+',status:{cls:'skip',chip:'Sari peste'},conf:[1,'Meciul e practic câștigat de Sorana. Nu mai e nimic de luat.'],rows:[
-    ['De ce nu','La cota 1.02 câștigi 20 de bani la 10 lei. Fără sens.']]},
-  {t:'live',a:'Putintseva',b:'Sonmez',oddsTxt:'Live set 1, 6-6 (tiebreak) · Putintseva 2.20 · Sonmez 1.84',status:{cls:'live',chip:'Live: după tiebreak'},conf:[3,'Mulți bani în piață, dar meciul s-a întors: acum Sonmez e favorită.'],rows:[
-    ['Ce s-a schimbat','La start Putintseva era favorită (1.76). Acum piața o preferă pe Sonmez (1.84).'],
-    ['De ce nu acum','În tiebreak, fiecare punct mișcă cota mult. Nu intra în timpul lui.'],
-    ['Intrare','Putintseva pierde tiebreak-ul (setul 1) → back Putintseva la ~<b>3.30–3.60</b>, cu miză mică.'],
-    ['Ieșire','Profit: face break în setul 2 (~<b>2.20</b>). Stop: pierde serviciul în setul 2 (~<b>5.50</b>).']]},
-  {t:'live',score:'Live set 1, început',a:'Boulter',b:'Shnaider',oa:4.7,ob:1.28,v:16408},
-  {t:'09:30',a:'Sakkari',b:'Kostyuk',oa:3.05,ob:1.51,v:33038,note:'Cei mai mulți bani din piață: intri și ieși ușor.'},
-  {t:'09:45',a:'Tagger',b:'Bartunkova',oa:3.3,ob:1.45,v:3418},
-  {t:'10:00',a:'Kasatkina',b:'Ostapenko',oa:2.28,ob:1.81,v:1408,note:'Ostapenko lovește foarte tare și greșește mult, deci face și primește multe break-uri. E cel mai bun meci de azi pentru break-back.',conf:[4,'Stilul Ostapenkăi produce multe break-uri, deci ai multe ocazii de intrare și ieșire. Banii din piață cresc la start.']},
-  {t:'10:30',a:'Snigur',b:'Mertens',oa:3.0,ob:1.52,v:3786,note:'Mertens e jucătoare constantă, cu experiență.'},
-  {t:'11:30',a:'Li',b:'Osorio',oa:1.71,ob:2.44,v:156},
-  {t:'14:00',a:'Krueger',b:'Zhang'},
-  {t:'15:30',a:'Pohankova',b:'Wang Xiyu'}
+  {t:'14:00',a:'Krueger',b:'Zhang Shuai',oa:1.78,ob:2.32,v:2875,note:'Krueger servește foarte puternic, dar pierde des serviciul când greșește mult.'},
+  {t:'15:30',a:'Pohankova',b:'Wang Xiyu',oa:3.15,ob:1.48,v:292}
 ];
 
 const UCL='Champions League · etapa 2', CH='Championship · liga 2 engleză';
 const fot=[
- {tag:UCL,time:'19:45',name:'Sabah – Slavia Praga',odds:'3.75 / 3.90 / 2.12 · Peste 2.5: 1.68',cls:'wait',chip:'Doar live',conf:[2,'Slavia a pierdut acasă în etapa 1, deci nici favorita nu e sigură.'],rows:[
-  ['De ce Slavia','Favorită (~47%). Sabah a pierdut 0-4 la Man Utd în etapa 1.'],
+ {tag:UCL,time:'19:45',name:'Sabah – Slavia Praga',odds:'4.10 / 4.10 / 2.00 · Peste 2.5: 1.68',cls:'wait',chip:'Doar live',conf:[2,'Slavia a pierdut acasă în etapa 1, deci nici favorita nu e sigură.'],rows:[
+  ['De ce Slavia','Favorită (~50%, cota a scăzut de dimineață). Sabah a pierdut 0-4 la Man Utd în etapa 1.'],
   ['De ce nu la start','La 2.12, Slavia nu e sigură (a pierdut 2-3 acasă cu Lens). Nu ai avantaj.'],
   ['Intrare','Sabah marchează primul → back Slavia la ~<b>3.50–4.00</b>. Sau Slavia conduce după minutul 60 → back Slavia la ~<b>1.40</b>.'],
   ['Ieșire','Profit: egalare Slavia (~<b>2.20</b>) sau minutul 80–85 (~<b>1.12</b>). Stop: Sabah dă încă un gol, sau egalare.']]},
- {tag:UCL,time:'19:45',name:'Lens – Sporting',odds:'2.68 / 3.95 / 2.74 · Peste 2.5: 1.65',cls:'wait',chip:'Lay the Draw la pauză',conf:[3,'Ambele echipe dau goluri, iar banii din piață au crescut (2.000+ lei). Intrarea depinde însă de scorul de la pauză.'],rows:[
+ {tag:UCL,time:'19:45',name:'Lens – Sporting',odds:'2.64 / 3.90 / 2.78 · Peste 2.5: 1.65',cls:'wait',chip:'Lay the Draw la pauză',conf:[3,'Ambele echipe dau goluri, iar banii din piață au crescut (2.000+ lei). Intrarea depinde însă de scorul de la pauză.'],rows:[
   ['De ce','Meci echilibrat, ambele au dat 3 goluri în etapa 1. Piața se așteaptă la goluri (~61% peste 2.5).'],
   ['De ce nu la start','Lay pe egal la 3.95 înseamnă răspundere de ~3 ori miza. La pauză, dacă e 0-0, riști mult mai puțin.'],
   ['Intrare','0-0 la pauză → lay pe egal la ~<b>2.30</b>. Sau gol → lay pe echipa care a marcat (~<b>1.75</b>).'],
   ['Ieșire','Profit: primul gol (egalul urcă la ~<b>4.50</b>), cash-out. Stop: 0-0 la minutul 70 (egalul ~<b>1.70</b>).']]},
- {tag:CH,time:'21:45',name:'Cardiff – Watford',odds:'1.73 / 4.60 / 5.10 · medie goluri 2.78 / 2.33',cls:'wait',chip:'Time decay',conf:[2,'Cardiff e pe 21, deci și ca favorită e o echipă slabă.'],rows:[
+ {tag:CH,time:'21:45',name:'Cardiff – Watford',odds:'1.71 / 4.60 / 5.20 · medie goluri 2.78 / 2.33',cls:'wait',chip:'Time decay',conf:[2,'Cardiff e pe 21, deci și ca favorită e o echipă slabă.'],rows:[
   ['De ce Cardiff','Watford dă doar 0,25 goluri pe meci în deplasare (0% peste 2.5).'],
   ['De ce nu la start','Cardiff e pe 21 și a câștigat 1 meci din 9. 1.74 e prea mică pentru o echipă slabă.'],
   ['Intrare','Cardiff conduce după minutul 60 → back Cardiff la ~<b>1.35–1.45</b>.'],
   ['Ieșire','Profit: minutul 80 (~<b>1.12</b>). Stop: egalare.']]},
- {tag:CH,time:'21:45',name:'Wolves – Bolton',odds:'1.45 / 5.20 / 9.00 · medie goluri 3.25 / 3.22',cls:'wait',chip:'Doar live',conf:[3,'Statistica e clar pentru Wolves, dar Wolves a pierdut 2 din ultimele 5.'],rows:[
+ {tag:CH,time:'21:45',name:'Wolves – Bolton',odds:'1.45 / 5.30 / 8.80 · medie goluri 3.25 / 3.22',cls:'wait',chip:'Doar live',conf:[3,'Statistica e clar pentru Wolves, dar Wolves a pierdut 2 din ultimele 5.'],rows:[
   ['De ce Wolves','Acasă iau 78% din puncte și dau 2,33 goluri pe meci. Bolton ia 2,5 goluri pe meci în deplasare.'],
   ['De ce nu la start','La 1.45 câștigi 4,5 lei la 10, iar Wolves a pierdut 2 din ultimele 5.'],
   ['Intrare','Bolton marchează primul → back Wolves la ~<b>2.60–3.00</b>. Sau Wolves conduce după minutul 60 → back la ~<b>1.25</b>.'],
   ['Ieșire','Profit: egalează Wolves (~<b>1.80</b>) sau minutul 80 (~<b>1.07</b>). Stop: Bolton 2-0, sau egalare.']]},
- {tag:CH,time:'21:45',name:'Wrexham – West Brom',odds:'2.44 / 3.55 / 3.40 · medie goluri 2.56 / 2.11',cls:'skip',chip:'Sari peste',conf:[1,'Puține goluri și nicio favorită clară.'],rows:[
+ {tag:CH,time:'21:45',name:'Wrexham – West Brom',odds:'2.42 / 3.50 / 3.40 · medie goluri 2.56 / 2.11',cls:'skip',chip:'Sari peste',conf:[1,'Puține goluri și nicio favorită clară.'],rows:[
   ['De ce nu','Puține goluri: West Brom are 33% meciuri peste 2.5. Nu are niciun avantaj.'],
   ['Opțional','0-0 la minutul 60 → back „Sub 1.5 goluri” la ~<b>1.50</b>, cu miză mică. Profit: minutul 80 (~<b>1.15</b>). Stop: primul gol.']]},
- {tag:CH,time:'21:45',name:'Millwall – Swansea',odds:'2.54 / 3.60 / 3.15 · medie goluri 3.44 / 2.44',cls:'wait',chip:'Lay the Draw la pauză',conf:[3,'Millwall acasă are goluri în toate meciurile și s-au strâns bani în piață (5.000+ lei), dar Swansea apără foarte bine.'],rows:[
+ {tag:CH,time:'21:45',name:'Millwall – Swansea',odds:'2.52 / 3.60 / 3.15 · medie goluri 3.44 / 2.44',cls:'wait',chip:'Lay the Draw la pauză',conf:[3,'Millwall acasă are goluri în toate meciurile și s-au strâns bani în piață (5.000+ lei), dar Swansea apără foarte bine.'],rows:[
   ['De ce','Millwall acasă: 3,5 goluri pe meci, 100% din ultimele 4 peste 2.5. Swansea e liderul.'],
   ['De ce nu la start','Swansea primește foarte puține goluri (0,78 pe meci), deci un 0-0 lung e posibil. Mai bine aștepți pauza.'],
   ['Intrare','0-0 la pauză → lay pe egal la ~<b>2.30</b>. Millwall marchează → lay Millwall la ~<b>1.75</b>. Swansea marchează → <b>nu</b> lay, ci back Swansea după minutul 60.'],
   ['Ieșire','Profit: primul gol / egalarea, cash-out. Stop: 0-0 la minutul 70, sau al doilea gol.']]},
- {tag:CH,time:'21:45',name:'Bristol City – Blackburn',odds:'2.20 / 3.55 / 3.90 · medie goluri 2.78 / 3.00',cls:'skip',chip:'Sari peste',conf:[1,'Statisticile se contrazic.'],rows:[
+ {tag:CH,time:'21:45',name:'Bristol City – Blackburn',odds:'2.18 / 3.60 / 3.90 · medie goluri 2.78 / 3.00',cls:'skip',chip:'Sari peste',conf:[1,'Statisticile se contrazic.'],rows:[
   ['De ce nu','Bristol acasă are doar 25% meciuri peste 2.5, iar Blackburn în deplasare 75%. Nu ai un avantaj clar.']]},
- {tag:CH,time:'21:45',name:'Burnley – Charlton',odds:'1.70 / 4.20 / 6.20 · medie goluri 3.33 / 2.11',cls:'skip',chip:'Sari peste',conf:[1,'Piața și clasamentul nu se potrivesc, iar nicio strategie nu are avantaj.'],rows:[
+ {tag:CH,time:'21:45',name:'Burnley – Charlton',odds:'1.68 / 4.20 / 6.20 · medie goluri 3.33 / 2.11',cls:'skip',chip:'Sari peste',conf:[1,'Piața și clasamentul nu se potrivesc, iar nicio strategie nu are avantaj.'],rows:[
   ['De ce nu','Burnley e pe 22, dar piața îl dă favorit clar. Charlton dă doar 0,89 goluri pe meci, deci o egalare e puțin probabilă și lay după gol nu merge.']]},
- {tag:UCL,time:'22:00',name:'Arsenal – Lille',odds:'1.24 / 7.60 / 18.00 · Peste 2.5: 1.59',cls:'skip',chip:'Doar după surpriză',conf:[3,'Dacă Lille marchează primul, revenirea Arsenalului e probabilă. Dar e puțin probabil să se întâmple.'],rows:[
+ {tag:UCL,time:'22:00',name:'Arsenal – Lille',odds:'1.24 / 8.00 / 16.00 · Peste 2.5: 1.59',cls:'skip',chip:'Doar după surpriză',conf:[3,'Dacă Lille marchează primul, revenirea Arsenalului e probabilă. Dar e puțin probabil să se întâmple.'],rows:[
   ['De ce Arsenal','~80% șanse, acasă.'],
   ['De ce nu la start','La 1.25 câștigi 2,5 lei la 10. Prea puțin.'],
   ['Intrare','Lille marchează primul → back Arsenal la ~<b>2.40–2.80</b>.'],
   ['Ieșire','Profit: egalează Arsenal (~<b>1.60</b>). Stop: Lille 2-0.']]},
- {tag:UCL,time:'22:00',name:'Atletico – Man Utd',odds:'2.06 / 3.95 / 3.95 · Peste 2.5: 1.65',cls:'wait',chip:'Lay după gol',conf:[4,'Meciul serii, cu cei mai mulți bani în piață. Ambele echipe pot marca, deci o egalare e realistă.'],rows:[
+ {tag:UCL,time:'22:00',name:'Atletico – Man Utd',odds:'2.00 / 4.00 / 4.10 · Peste 2.5: 1.65',cls:'wait',chip:'Lay după gol',conf:[4,'Meciul serii, cu cei mai mulți bani în piață. Ambele echipe pot marca, deci o egalare e realistă.'],rows:[
   ['De ce','Meciul serii, cu mulți bani în piață. United a dat 4 goluri în etapa 1, Atletico a pierdut la Liverpool.'],
   ['De ce nu la start','2.04 / 3.90 e o cotă corectă. Avantajul apare după primul gol, când piața exagerează.'],
   ['Intrare','Atletico marchează → lay Atletico la ~<b>1.40</b>. United marchează → lay United la ~<b>1.90</b>.'],
   ['Ieșire','Profit: egalarea (cota celui care a marcat urcă la ~<b>2.10</b> / ~<b>4.00</b>). Stop: cota celui care a marcat scade cu 10 trepte (~<b>1.30</b> / ~<b>1.75</b>) sau al doilea gol.']]},
- {tag:UCL,time:'22:00',name:'Galatasaray – Barcelona',odds:'10.0 / 7.20 / 1.32 · Peste 2.5: 1.24',cls:'skip',chip:'Doar după surpriză',conf:[3,'Barcelona revine des, dar intrarea depinde de un gol surpriză.'],rows:[
+ {tag:UCL,time:'22:00',name:'Galatasaray – Barcelona',odds:'9.80 / 7.40 / 1.32 · Peste 2.5: 1.24',cls:'skip',chip:'Doar după surpriză',conf:[3,'Barcelona revine des, dar intrarea depinde de un gol surpriză.'],rows:[
   ['De ce Barcelona','~76% șanse și peste 4 goluri pe meci în campionat.'],
   ['De ce nu la start','La 1.32 riști 10 ca să câștigi 3,2. Galatasaray acasă poate da un gol.'],
   ['Intrare','Galatasaray marchează primul → back Barcelona la ~<b>2.60–3.20</b>.'],
   ['Ieșire','Profit: egalează Barça (~<b>1.60</b>). Stop: Galatasaray 2-0.']]},
- {tag:UCL,time:'22:00',name:'Inter – Club Brugge',odds:'1.29 / 7.00 / 14.00 · Peste 2.5: 1.44',cls:'skip',chip:'Doar după surpriză',conf:[3,'Inter marchează mult, dar intrarea depinde de un gol surpriză.'],rows:[
+ {tag:UCL,time:'22:00',name:'Inter – Club Brugge',odds:'1.28 / 7.20 / 13.00 · Peste 2.5: 1.44',cls:'skip',chip:'Doar după surpriză',conf:[3,'Inter marchează mult, dar intrarea depinde de un gol surpriză.'],rows:[
   ['De ce Inter','~78% șanse și 18 goluri în 6 meciuri în Serie A.'],
   ['De ce nu la start','La 1.29 câștigi 2,9 lei la 10. Prea puțin.'],
   ['Intrare','Brugge marchează primul → back Inter la ~<b>2.50–3.00</b>.'],
   ['Ieșire','Profit: egalează Inter (~<b>1.60</b>). Stop: Brugge 2-0.']]},
- {tag:UCL,time:'22:00',name:'RB Leipzig – PSV',odds:'1.68 / 5.10 / 4.90 · Peste 2.5: 1.32',cls:'wait',chip:'Lay după gol',conf:[3,'Piața se așteaptă la multe goluri și riști puțin, dar Leipzig acasă poate domina.'],rows:[
+ {tag:UCL,time:'22:00',name:'RB Leipzig – PSV',odds:'1.67 / 5.20 / 4.90 · Peste 2.5: 1.32',cls:'wait',chip:'Lay după gol',conf:[3,'Piața se așteaptă la multe goluri și riști puțin, dar Leipzig acasă poate domina.'],rows:[
   ['De ce','Piața se așteaptă la multe goluri (~75% peste 2.5). Leipzig a luat 4 goluri la Como în etapa 1.'],
   ['De ce nu la start','Egalul la 5.1 e prea scump de lay, iar Leipzig la 1.68 nu e sigur.'],
   ['Intrare','Leipzig marchează → lay Leipzig la ~<b>1.25–1.30</b>. Riști foarte puțin.'],
   ['Ieșire','Profit: egalează PSV (Leipzig urcă la ~<b>1.80</b>). Stop: Leipzig 2-0.']]},
- {tag:UCL,time:'22:00',name:'Viking – Bayern',odds:'26 / 14.5 / 1.13 · Peste 2.5: 1.18',cls:'skip',chip:'Doar după surpriză',conf:[2,'Un gol al lui Viking e foarte puțin probabil, deci probabil nu vei intra deloc.'],rows:[
+ {tag:UCL,time:'22:00',name:'Viking – Bayern',odds:'27 / 14.5 / 1.13 · Peste 2.5: 1.18',cls:'skip',chip:'Doar după surpriză',conf:[2,'Un gol al lui Viking e foarte puțin probabil, deci probabil nu vei intra deloc.'],rows:[
   ['De ce Bayern','~88% șanse.'],
   ['De ce nu la start','La 1.13 câștigi 1,3 lei la 10 riscați.'],
   ['Intrare','Viking marchează primul → back Bayern la ~<b>1.80–2.00</b>.'],
   ['Ieșire','Profit: egalează Bayern (~<b>1.25</b>). Stop: Viking 2-0.']]},
- {tag:UCL,time:'22:00',name:'Villarreal – Napoli',odds:'2.24 / 3.90 / 3.50 · Peste 2.5: 1.69',cls:'wait',chip:'Lay the Draw la pauză',conf:[3,'Banii din piață au crescut (~3.000 lei), dar intrarea depinde de scorul de la pauză.'],rows:[
+ {tag:UCL,time:'22:00',name:'Villarreal – Napoli',odds:'2.16 / 3.85 / 3.70 · Peste 2.5: 1.69',cls:'wait',chip:'Lay the Draw la pauză',conf:[3,'Banii din piață au crescut (~3.000 lei), dar intrarea depinde de scorul de la pauză.'],rows:[
   ['De ce','Ambele au pierdut în etapa 1 și au nevoie de victorie.'],
   ['De ce nu la start','Lay pe egal la 3.90 înseamnă răspundere de ~3 ori miza. La pauză riști mai puțin.'],
   ['Intrare','0-0 la pauză → lay pe egal la ~<b>2.30</b>.'],
@@ -261,7 +246,7 @@ const fot=[
   ['De ce de la start','E singurul meci de azi unde statistica arată goluri la ambele echipe.'],
   ['Intrare','Lay pe egal la ~<b>3.90</b>, miză ~<b>3.45 lei</b> (răspundere 10 lei).'],
   ['Ieșire','Profit: primul gol (egalul urcă la ~<b>5.50–6.00</b>), cash-out (~+2–3 lei). Stop: 0-0 la minutul 35 (egalul ~<b>3.00</b>), ieși cu ~−2,5 lei.']]},
- {tag:CH,time:'22:00',name:'Birmingham – Preston',odds:'1.61 / 4.60 / 6.40 · medie goluri 2.67 / 2.67',cls:'wait',chip:'Time decay',conf:[3,'Preston e ultima, dar Birmingham nu e o echipă care dă multe goluri.'],rows:[
+ {tag:CH,time:'22:00',name:'Birmingham – Preston',odds:'1.60 / 4.70 / 6.60 · medie goluri 2.67 / 2.67',cls:'wait',chip:'Time decay',conf:[3,'Preston e ultima, dar Birmingham nu e o echipă care dă multe goluri.'],rows:[
   ['De ce Birmingham','Preston e ultima (15% din puncte).'],
   ['De ce nu la start','Lay Preston la 6.40 e prea scump (riști 54 lei ca să câștigi 10). Back Birmingham la 1.62 nu are avantaj.'],
   ['Intrare','Birmingham conduce după minutul 60 → back la ~<b>1.30</b>. Preston marchează primul → back Birmingham la ~<b>2.80–3.20</b>.'],
