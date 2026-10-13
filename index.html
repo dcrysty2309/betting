@@ -181,17 +181,19 @@ const wuhan=[
 
 const UCL='Champions League · etapa 2', CH='Championship · liga 2 engleză', TR='1. Lig · liga 2 turcă';
 const fot=[
- {tag:TR,time:'live',name:'Sariyer – Bodrumspor',odds:'LIVE min 8: Sariyer 0-1 Bodrumspor · înainte de meci 1.91 / 3.10 / 4.15 · acum Sariyer ~3.85 (case de pariuri)',cls:'live',chip:'Live: după surpriză',conf:[2,'Bodrumspor e o echipă care se apără bine (1,67 goluri pe meci în total) și o va face și acum. Meciul nu e pe Betfair Exchange, deci nu poți face lay.'],rows:[
-  ['De ce Sariyer','Acasă ia 67% din puncte, marchează 1,6 goluri pe meci și primește doar 0,8. Era favorită (1.91).'],
-  ['Problema','Bodrumspor marchează puțin (0,75 pe meci în deplasare), dar primește și puțin (1,0). Doar 22% din meciurile lor au 3+ goluri. Conduce acum și se va apăra.'],
-  ['Intrare','Nu imediat. Te uiți pe statisticile live de pe Flashscore până la minutul 30. Dacă Sariyer are clar mai multe șuturi pe poartă, pariezi pe <b>„1X” (Sariyer să nu piardă)</b> la ~<b>1.90–2.10</b>.'],
-  ['Ieșire','Profit: egalare, cash-out. Stop: 0-2, sau dacă e tot 0-1 la minutul 75 (cash-out cu ce ai).']]},
- {tag:TR,time:'20:00',name:'Pendikspor – Vanspor',odds:'1.75 / 3.55 / 4.45 (case de pariuri) · medie goluri 3.11 / 3.00',cls:'wait',chip:'Doar live',conf:[2,'Meciul nu e pe Betfair Exchange (doar la case de pariuri) și ambele echipe sunt slabe.'],rows:[
-  ['De ce Pendikspor','Acasă ia 50% din puncte și primește doar 1 gol pe meci. Vanspor e pe 19, cu 1 victorie din 9, depunctată cu 2 puncte, și primește 2,5 goluri pe meci în deplasare.'],
-  ['De ce nu la start','Pendikspor e pe 13 și a câștigat doar 2 meciuri din 9. La 1.75 e prea scump pentru o echipă slabă. Ultimele 2 meciuri directe: 1-1 și 1-1.'],
-  ['De ce nu Lay the Draw','Meciurile lui Pendikspor acasă au puține goluri (2,25 pe meci, 25% cu 3+ goluri).'],
-  ['Intrare','Vanspor marchează primul → back Pendikspor la ~<b>3.50+</b>. Sau Pendikspor conduce după minutul 60 → back la ~<b>1.35</b> (time decay).'],
-  ['Ieșire','Profit: egalare (~<b>2.20</b>) sau minutul 80 (~<b>1.10</b>). Stop: Vanspor 0-2, sau egalare după ce ai intrat la time decay.']]},
+ {tag:TR,time:'live',name:'Sariyer – Bodrumspor',odds:'LIVE min 25: Sariyer 0-3 Bodrumspor · înainte de meci 1.91 / 3.10 / 4.15 · acum Bodrumspor ~1.06',cls:'skip',chip:'Sari peste',conf:[1,'Meciul e decis: Sariyer nu creează nimic, iar cotele rămase sunt fie prea mici, fie fără șanse.'],rows:[
+  ['Statistici live','xG (goluri așteptate): Sariyer <b>0.05</b>, Bodrumspor 0.40. Șuturi: 1 la 6. Șuturi pe poartă: 1 la 5. Ocazii mari: 0 la 1. Posesie: 55% la 45%, dar o posesie fără folos.'],
+  ['Înainte de meci','Sariyer era favorită (1.91): acasă ia 67% din puncte și dă 1,6 goluri pe meci. Bodrumspor e o echipă de apărare (1,67 goluri pe meci în total).'],
+  ['Lay the leader?','Nu. Lay pe Bodrumspor la 1.06 câștigă doar dacă Sariyer revine de la 0-3, iar cu xG 0.05 nu are cum.'],
+  ['Lay the Draw / goluri?','Nu. Egalul nu mai contează la 0-3. La goluri, Bodrumspor a dat 3 goluri din doar 0.40 xG, dar meciul e lent, iar după 3-0 echipele încetinesc.'],
+  ['Lecția','La minutul 8, la 0-1, planul era: aștepți statisticile până la minutul 30 și intri doar dacă Sariyer domină. Sariyer nu a dominat deloc (1 șut), deci regula te-ar fi ținut departe de o pierdere.']]},
+ {tag:TR,time:'20:00',name:'Pendikspor – Vanspor',odds:'1.75 / 3.55 / 4.45 (case de pariuri) · medie goluri 3.11 / 3.00',cls:'wait',chip:'Lay the leader / după gol',conf:[2,'Meciul nu e pe Betfair Exchange, deci joci la casa de pariuri. Ambele echipe sunt slabe.'],rows:[
+  ['Context','Pendikspor e pe 13: acasă ia 50% din puncte și primește 1 gol pe meci. Vanspor e pe 19, cu 1 victorie din 9 și depunctată cu 2 puncte. În deplasare marchează 1 gol pe meci, dar primește 2,5. Ultimele 2 meciuri directe: 1-1 și 1-1.'],
+  ['De ce nu la start','1.75 e prea mică pentru o echipă care a câștigat 2 meciuri din 9. Egalul la 3.55 nu are avantaj, iar Pendikspor acasă are meciuri cu puține goluri (25% cu 3+ goluri).'],
+  ['Strategia 1: Lay the leader','Pendikspor marchează primul <b>înainte de minutul 35</b> → lay Pendikspor. La casa de pariuri, echivalentul e <b>„X2”</b> la o cotă decentă, ~<b>2.80–3.20</b>. De ce: Pendikspor primește 1,89 goluri pe meci, iar meciurile directe s-au terminat la egalitate.'],
+  ['Strategia 2: după surpriză','Vanspor marchează primul → back Pendikspor la ~<b>3.50+</b>. Intri doar dacă statisticile live arată că Pendikspor domină (mai multe șuturi pe poartă, xG mai mare).'],
+  ['Ieșire','Strategia 1: profit la egalare (cash-out), stop la 2-0. Strategia 2: profit la egalare (cotă ~2.20), stop la 0-2 sau dacă e tot 0-1 la minutul 75.'],
+  ['La casa de pariuri','Fără exchange nu poți face lay. Echivalentele sunt: lay pe egal = „12”, lay pe o echipă = șansă dublă pe celelalte două rezultate. Verifică să ai cash-out pe pariu.']]},
  {tag:UCL,time:'19:45',name:'Sabah – Slavia Praga',odds:'4.10 / 4.10 / 2.00 · Peste 2.5: 1.68',cls:'wait',chip:'Doar live',conf:[2,'Slavia a pierdut acasă în etapa 1, deci nici favorita nu e sigură.'],rows:[
   ['De ce Slavia','Favorită (~50%, cota a scăzut de dimineață). Sabah a pierdut 0-4 la Man Utd în etapa 1.'],
   ['De ce nu la start','La 2.12, Slavia nu e sigură (a pierdut 2-3 acasă cu Lens). Nu ai avantaj.'],
