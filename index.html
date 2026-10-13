@@ -273,7 +273,7 @@ for(const [sp,list] of Object.entries(comps)){
   document.getElementById('g-'+sp).innerHTML=list.map(c=>{
     const good=c.items.filter(o=>o.conf[0]>=4).length;
     c.items.filter(o=>o.conf[0]>=4).forEach(o=>topList.push({...o,comp:c.name,sp}));
-    return `<details class="comp" open><summary><span class="cname">${c.name}</span><span class="cnt">${c.items.length} meciuri · ${good} cu nota 4–5</span></summary><div class="group">${c.items.map(card).join('')}</div></details>`;
+    return `<details class="comp" open><summary><span class="cname">${c.name}</span><span class="cnt">${c.items.length===1?'1 meci':c.items.length+' meciuri'} · ${good} cu nota 4–5</span></summary><div class="group">${c.items.map(card).join('')}</div></details>`;
   }).join('');
 }
 document.getElementById('toplist').innerHTML=byTime(topList).map(o=>`<a class="toprow" href="#${o.id}"><span class="tt">${o.time}</span><span style="min-width:0"><span class="tn">${o.name}</span><br><span class="ts">${sportLabel[o.sp]} · ${o.comp} · ${o.chip}</span></span><span class="note n${o.conf[0]}">${o.conf[0]}/5</span></a>`).join('');
